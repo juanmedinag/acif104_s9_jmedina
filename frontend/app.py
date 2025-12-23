@@ -60,6 +60,6 @@ with col2:
 
 st.markdown("---")
 st.markdown(
-    "Para más detalle sobre la explicación del modelo (SHAP), consulte las figuras generadas "
-    "por `python -m src.shap_analysis` en la carpeta `notebooks/figuras/`."
+    "Para más detalle sobre la explicación del modelo (SHAP), consulte los notebooks y figuras "
+    "disponibles en la carpeta `notebooks/` (por ejemplo, `notebooks/figuras/`)."
 )
