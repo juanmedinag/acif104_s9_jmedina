@@ -18,7 +18,6 @@ scaler = joblib.load(SCALER_PATH)
 
 
 class InputData(BaseModel):
-    air_temperature_k: float
     process_temperature_k: float
     rotational_speed_rpm: float
     torque_nm: float
@@ -40,7 +39,6 @@ def metrics():
 @app.post("/predict_falla")
 def predict_falla(x: InputData):
     X = np.array([[
-        x.air_temperature_k,
         x.process_temperature_k,
         x.rotational_speed_rpm,
         x.torque_nm,
@@ -49,6 +47,4 @@ def predict_falla(x: InputData):
 
     Xs = scaler.transform(X)
     proba = float(model.predict_proba(Xs)[0, 1])
-
-    # Respuesta alineada con el frontend
     return {"failure_probability": proba}
